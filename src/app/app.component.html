@@ -7,6 +7,7 @@
       <li>
         <app-user 
           [user]="user"
+          [selected]="user.id === selectedUserId"
           (select)="onSelectUser($event)"
         />
       </li>
@@ -23,10 +24,9 @@
   <!-- ngIf angular 16 and below-->
   @if (SelectedUser) {
     <app-tasks
-    [name]="SelectedUser!.name"
-    [userId]="SelectedUser!.id"
-
-    ></app-tasks>
+      [name]="SelectedUser!.name"
+      [userId]="SelectedUser!.id"
+    />
   
     <!-- <app-task *ngIf="SelectedUser else fallback " [name]="SelectedUser!.name"></app-task> -->
   } @else {

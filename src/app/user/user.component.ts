@@ -19,7 +19,10 @@ export class UserComponent {
   // @Input({required: true}) avatar!: string;
   // @Input({required: true}  ) name!: string;
 
-  @Input({required: true}) user!: User; 
+  @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected!: boolean;
+  // @Input({ required: true }) userId: string | undefined;
+ 
   @Output() select = new EventEmitter<string>();
 
   /** ANGULAR 18 feature | signal approach
