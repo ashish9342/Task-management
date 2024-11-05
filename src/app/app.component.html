@@ -22,7 +22,11 @@
   </ul>
   <!-- ngIf angular 16 and below-->
   @if (SelectedUser) {
-    <app-tasks [name]="SelectedUser!.name"></app-tasks>
+    <app-tasks
+    [name]="SelectedUser!.name"
+    [userId]="SelectedUser!.id"
+
+    ></app-tasks>
   
     <!-- <app-task *ngIf="SelectedUser else fallback " [name]="SelectedUser!.name"></app-task> -->
   } @else {
