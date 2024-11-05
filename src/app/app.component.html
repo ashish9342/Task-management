@@ -3,7 +3,11 @@
 <main>
   <ul>
     <li>
-      <app-user [avatar]="users[0].avatar" [name]="users[0].name"/>
+      <app-user 
+        [user]="users[0]"
+        (select)="onSelectUser($event)"
+      />
     </li>
   </ul>
+  <app-task [name]="SelectedUser.name"></app-task>
 </main>
