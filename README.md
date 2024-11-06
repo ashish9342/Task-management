@@ -12,7 +12,11 @@
  
 <img width="586" alt="Screenshot 2024-11-06 at 11 58 38 AM" src="https://github.com/user-attachments/assets/7ec1b537-377c-488d-9aa9-8b13739e47a5">
 
+ ### Added new task
 
+ <img width="835" alt="Screenshot 2024-11-06 at 1 04 04 PM" src="https://github.com/user-attachments/assets/291239a6-60d5-4bf6-b167-6a5044b01848">
+
+ 
 # Project: Task Managment
 
 - Helps creates the task
