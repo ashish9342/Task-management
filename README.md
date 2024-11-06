@@ -8,7 +8,11 @@
 
  <img width="848" alt="Screenshot 2024-11-05 at 11 44 29 PM" src="https://github.com/user-attachments/assets/9411c734-820e-48a4-892f-16d9deb9bf71">
 
+ ### Add new task dialog
  
+<img width="586" alt="Screenshot 2024-11-06 at 11 58 38 AM" src="https://github.com/user-attachments/assets/7ec1b537-377c-488d-9aa9-8b13739e47a5">
+
+
 # Project: Task Managment
 
 - Helps creates the task
