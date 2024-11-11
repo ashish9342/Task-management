@@ -1,29 +1,39 @@
-name: Angular Build and Deploy
+name: github pages
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: 20
+          node-version: '14'
 
-      - name: Build Angular app to prod
-        working-directory: Task-management
-        run: npm install && npm run build:prod
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          folder: Task-management/dist/browser
-          branch: prod  
-          token: ${{ secrets.GH_TOKEN }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npx ng build --base-href /pages-demo-angular/
+      - run: cp dist/Task-management/index.html dist/Task-management/404.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/Task-management/
